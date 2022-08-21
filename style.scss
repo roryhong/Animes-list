@@ -1,0 +1,249 @@
+$mainColor: #00aeae;
+$darkModeAideColor: #272727;
+$cardAndListModeBorderRadius: 10px;
+
+%aboutFlex {
+  display: flex;
+  align-items: center;
+}
+
+%aboutTransform {
+  transform: scale(1, 1);
+  transition: all 1s ease-out;
+
+  &:hover {
+    transform: scale(1.2, 1.2);
+  }
+}
+
+@mixin rwd {
+  @media (min-width: 1000px) {
+    @content;
+  }
+}
+
+html {
+  margin: 0;
+  padding: 1% 3%;
+  box-sizing: border-box;
+}
+
+nav {
+  margin: 15px;
+  @extend %aboutFlex;
+  justify-content: space-between;
+  padding: 0 1%;
+
+  @include rwd {
+    padding: 0 5%;
+  }
+
+  >.title {
+    font-size: 40px;
+    font-weight: 600;
+    color: #3c3c3c;
+    cursor: pointer;
+      > span:first-child {
+        color: $mainColor;
+      }
+  }
+
+  >.items {
+    @extend %aboutFlex;
+
+    >div {
+      font-size: 20px;
+      margin: 0 10px;
+      cursor: pointer;
+    }
+
+    >.dark-mode {
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      @extend %aboutFlex;
+      justify-content: center;
+      background-color: $darkModeAideColor;
+
+      >.fa-moon {
+        font-size: 10px;
+        color: white;
+      }
+
+      >.fa-sun {
+        font-size: 10px;
+        color: $darkModeAideColor;
+      }
+    }
+  }
+}
+
+main {
+  @extend %aboutFlex;
+  flex-direction: column;
+  position: relative;
+
+  >input {
+    margin: 25px 0 50px 0;
+    border: 1px solid $darkModeAideColor;
+    outline: none;
+    border-radius: 20px;
+    width: 50%;
+    height: 35px;
+    padding: 10px;
+
+    @include rwd {
+      width: 40%;
+    }
+  }
+
+  >.arrangement-Mode {
+    @extend %aboutFlex;
+    padding: 3px 7px;
+    position: absolute;
+    right: 15px;
+    top: 80px;
+    cursor: pointer;
+    font-size: 25px;
+
+    @include rwd {
+      right: 100px;
+    }
+
+    >.card-mode {
+      margin-right: 5px;
+    }
+
+    >.list-mode,
+    .card-mode {
+      >.active {
+        color: $mainColor;
+      }
+    }
+  }
+
+  >.container {
+    @include rwd {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+      margin-top: 30px;
+    }
+
+    >.card {
+      border-radius: $cardAndListModeBorderRadius;
+      margin: 20px auto;
+      font-size: 20px;
+      font-weight: 600;
+
+      @include rwd {
+        margin: 50px 5px 10px 5px;
+      }
+
+      >a {
+        >div {
+          border-radius: 10px 10px 0 0;
+          width: 100%;
+          height: 400px;
+          overflow: hidden;
+
+          >img {
+            width: 100%;
+            min-height: 100%;
+            object-fit: contain;
+            @extend %aboutTransform;
+          }
+        }
+      }
+    }
+
+    >.list {
+      width: 80%;
+      margin: 15px auto;
+      @extend %aboutFlex;
+      justify-content: space-around;
+
+      @include rwd {
+        width: 60%;
+      }
+
+      >a {
+        >div {
+          overflow: hidden;
+          border-radius: $cardAndListModeBorderRadius;
+
+          >img {
+            border-radius: $cardAndListModeBorderRadius;
+            @extend %aboutTransform;
+          }
+        }
+      }
+
+      >.list-body {
+        width: 100%;
+        text-align: center;
+        font-size: 20px;
+        font-weight: 600;
+        cursor: pointer;
+
+        >a {
+          text-decoration: none;
+
+          >.list-text {
+            color: #3c3c3c;
+          }
+        }
+      }
+    }
+  }
+
+  >.pagination-container {
+    margin: 50px 0;
+    cursor: pointer;
+
+    >.pagination {
+      li:first-child {
+        background-color: gray;
+      }
+
+      >.pagination-item {
+        width: 30px;
+        height: 30px;
+        text-align: center;
+        border-radius: 50%;
+        margin: 3px;
+        padding: 3px;
+        background-color: $mainColor;
+
+        >.pagination-link {
+          text-decoration: none;
+          color: white;
+        }
+      }
+
+      >.onClick {
+        background-color: gray;
+      }
+    }
+  }
+
+  >.to-the-top {
+    width: 50px;
+    height: 50px;
+    border: 1px solid #f0f0f0;
+    background-color: #f0f0f0;
+    border-radius: 50%;
+    font-size: 30px;
+    text-align: center;
+    cursor: pointer;
+    position: fixed;
+    right: 5%;
+    bottom: 100px;
+    opacity: 0;
+    transition: all 1s;
+
+    >a {
+      color: gray;
+    }
+  }
+}
