@@ -1,5 +1,6 @@
 $mainColor: #00aeae;
 $darkModeAideColor: #272727;
+$heartColor: #ff5151;
 $cardAndListModeBorderRadius: 10px;
 
 %aboutFlex {
@@ -43,9 +44,10 @@ nav {
     font-weight: 600;
     color: #3c3c3c;
     cursor: pointer;
-      > span:first-child {
-        color: $mainColor;
-      }
+
+    >span:first-child {
+      color: $mainColor;
+    }
   }
 
   >.items {
@@ -155,13 +157,29 @@ main {
           }
         }
       }
+
+      >.card-body {
+        @extend %aboutFlex;
+        justify-content: space-between;
+
+        >.card-heart {
+          @extend %aboutFlex;
+          align-items: end;
+          height: 100%;
+          cursor: pointer;
+          color: $heartColor;
+        }
+      }
     }
 
     >.list {
       width: 80%;
       margin: 15px auto;
       @extend %aboutFlex;
+      font-size: 20px;
+      font-weight: 600;
       justify-content: space-around;
+      position: relative;
 
       @include rwd {
         width: 60%;
@@ -182,9 +200,6 @@ main {
       >.list-body {
         width: 100%;
         text-align: center;
-        font-size: 20px;
-        font-weight: 600;
-        cursor: pointer;
 
         >a {
           text-decoration: none;
@@ -193,6 +208,14 @@ main {
             color: #3c3c3c;
           }
         }
+      }
+
+      >.list-heart {
+        position: absolute;
+        top: 0;
+        left: 240px;
+        color: $heartColor;
+        cursor: pointer;
       }
     }
   }

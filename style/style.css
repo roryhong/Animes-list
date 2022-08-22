@@ -1,4 +1,4 @@
-main > .container > .list, main > .arrangement-Mode, main, nav > .items > .dark-mode, nav > .items, nav {
+main > .container > .list, main > .container > .card > .card-body > .card-heart, main > .container > .card > .card-body, main > .arrangement-Mode, main, nav > .items > .dark-mode, nav > .items, nav {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -146,11 +146,27 @@ main > .container > .card > a > div > img {
   -o-object-fit: contain;
      object-fit: contain;
 }
+main > .container > .card > .card-body {
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+main > .container > .card > .card-body > .card-heart {
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: end;
+  height: 100%;
+  cursor: pointer;
+  color: #ff5151;
+}
 main > .container > .list {
   width: 80%;
   margin: 15px auto;
+  font-size: 20px;
+  font-weight: 600;
   -ms-flex-pack: distribute;
       justify-content: space-around;
+  position: relative;
 }
 @media (min-width: 1000px) {
   main > .container > .list {
@@ -167,15 +183,19 @@ main > .container > .list > a > div > img {
 main > .container > .list > .list-body {
   width: 100%;
   text-align: center;
-  font-size: 20px;
-  font-weight: 600;
-  cursor: pointer;
 }
 main > .container > .list > .list-body > a {
   text-decoration: none;
 }
 main > .container > .list > .list-body > a > .list-text {
   color: #3c3c3c;
+}
+main > .container > .list > .list-heart {
+  position: absolute;
+  top: 0;
+  left: 240px;
+  color: #ff5151;
+  cursor: pointer;
 }
 main > .pagination-container {
   margin: 50px 0;
