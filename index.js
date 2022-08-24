@@ -31,8 +31,8 @@ function cardMode(data) {
       </a>
       <div class="card-body">
         <p class="card-text">${item.entry[0].title}</p>
-        <div class="card-heart heart-icon">
-          <i class="far fa-heart" data-id=${item.entry[0].mal_id}></i>
+        <div class="card-plus plus-icon">
+            <i class="fas fa-plus" data-id=${item.entry[0].mal_id}></i>
         </div>
       </div>
     </div> 
@@ -56,8 +56,8 @@ function listMode(data) {
           <p class="list-text">${item.entry[0].title}</p>
         </a>
       </div>
-      <div class="list-heart heart-icon">
-          <i class="far fa-heart" data-id=${item.entry[0].mal_id}></i>
+      <div class="list-plus plus-icon">
+          <i class="fas fa-plus" data-id=${item.entry[0].mal_id}></i>
       </div>
     </div> 
     `;
@@ -78,7 +78,7 @@ function changeMode(mode) {
 function modeChangeColor() {
     const icon = document.querySelector(".dark-mode i");
     const title = document.querySelector(".title");
-    const favorite = document.querySelector(".favorite");
+    const favorite = document.querySelector(".favorite a");
     const input = document.querySelector("input");
     const mode = document.querySelector(".arrangement-Mode");
     const listText = document.querySelectorAll(".list div p");
@@ -180,6 +180,21 @@ function scrollHandler() {
     }
 }
 
+//加入最愛
+function addToFavorite(id) {
+    const list = JSON.parse(localStorage.getItem("myAnimes")) || [];
+    const anime = animes.find((item) => item.entry[0].mal_id === Number(id));
+
+    if (!list.some((item) => item.entry[0].mal_id === Number(id))) {
+        list.push(anime);
+    }else {
+        alert("已在您的最愛中了!")
+    }
+
+    localStorage.setItem("myAnimes", JSON.stringify(list));
+}
+
+
 //card or list mode 切換顏色
 arrangementMode.addEventListener("click", function modeIconClick(e) {
     const cardIcon = document.querySelector(".arrangement-Mode .card-mode i");
@@ -216,17 +231,10 @@ paginator.addEventListener("click", function paginationChange(e) {
     changeMode(mode);
     changeListModeTextColor();
 });
-//監聽愛心的點擊
-itemContainer.addEventListener("click", function clickHeart(e) {
-  if (!e.target.matches(".fa-heart")) return;
-
-  if (e.target.matches(".far")) {
-    e.target.classList.remove("far");
-    e.target.classList.add("fas");
-  } else {
-    e.target.classList.add("far");
-    e.target.classList.remove("fas");
-  }
+//監聽plus的點擊
+itemContainer.addEventListener("click", function clickPlus(e) {
+    if (!e.target.matches(".fa-plus")) return;
+    addToFavorite(e.target.dataset.id)
 });
 
 //深色模式改變顏色

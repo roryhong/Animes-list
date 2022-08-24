@@ -1,6 +1,5 @@
 $mainColor: #00aeae;
 $darkModeAideColor: #272727;
-$heartColor: #ff5151;
 $cardAndListModeBorderRadius: 10px;
 
 %aboutFlex {
@@ -53,10 +52,15 @@ nav {
   >.items {
     @extend %aboutFlex;
 
-    >div {
+    >.favorite {
       font-size: 20px;
       margin: 0 10px;
       cursor: pointer;
+
+      >a {
+        color: #3c3c3c;
+        text-decoration: none;
+      }
     }
 
     >.dark-mode {
@@ -162,12 +166,11 @@ main {
         @extend %aboutFlex;
         justify-content: space-between;
 
-        >.card-heart {
+        >.card-plus {
           @extend %aboutFlex;
           align-items: end;
           height: 100%;
           cursor: pointer;
-          color: $heartColor;
         }
       }
     }
@@ -210,11 +213,10 @@ main {
         }
       }
 
-      >.list-heart {
+      >.list-plus {
         position: absolute;
         top: 0;
         left: 240px;
-        color: $heartColor;
         cursor: pointer;
       }
     }

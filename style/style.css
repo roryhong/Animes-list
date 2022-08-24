@@ -1,4 +1,4 @@
-main > .container > .list, main > .container > .card > .card-body > .card-heart, main > .container > .card > .card-body, main > .arrangement-Mode, main, nav > .items > .dark-mode, nav > .items, nav {
+main > .container > .list, main > .container > .card > .card-body > .card-plus, main > .container > .card > .card-body, main > .arrangement-Mode, main, nav > .items > .dark-mode, nav > .items, nav {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -46,10 +46,14 @@ nav > .title {
 nav > .title > span:first-child {
   color: #00aeae;
 }
-nav > .items > div {
+nav > .items > .favorite {
   font-size: 20px;
   margin: 0 10px;
   cursor: pointer;
+}
+nav > .items > .favorite > a {
+  color: #3c3c3c;
+  text-decoration: none;
 }
 nav > .items > .dark-mode {
   border-radius: 50%;
@@ -151,13 +155,12 @@ main > .container > .card > .card-body {
       -ms-flex-pack: justify;
           justify-content: space-between;
 }
-main > .container > .card > .card-body > .card-heart {
+main > .container > .card > .card-body > .card-plus {
   -webkit-box-align: end;
       -ms-flex-align: end;
           align-items: end;
   height: 100%;
   cursor: pointer;
-  color: #ff5151;
 }
 main > .container > .list {
   width: 80%;
@@ -190,11 +193,10 @@ main > .container > .list > .list-body > a {
 main > .container > .list > .list-body > a > .list-text {
   color: #3c3c3c;
 }
-main > .container > .list > .list-heart {
+main > .container > .list > .list-plus {
   position: absolute;
   top: 0;
   left: 240px;
-  color: #ff5151;
   cursor: pointer;
 }
 main > .pagination-container {
