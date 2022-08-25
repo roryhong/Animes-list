@@ -41,11 +41,16 @@ nav {
   >.title {
     font-size: 40px;
     font-weight: 600;
-    color: #3c3c3c;
     cursor: pointer;
 
-    >span:first-child {
-      color: $mainColor;
+    >a {
+      text-decoration: none;
+      >span {
+        color: #3c3c3c;
+      }
+      >span:first-child {
+        color: $mainColor;
+      }
     }
   }
 
@@ -103,6 +108,9 @@ main {
     }
   }
 
+  .text {
+    color:#aaaaaa;
+  }
   >.arrangement-Mode {
     @extend %aboutFlex;
     padding: 3px 7px;
@@ -166,11 +174,12 @@ main {
         @extend %aboutFlex;
         justify-content: space-between;
 
-        >.card-plus {
+        >.card-icon {
           @extend %aboutFlex;
           align-items: end;
-          height: 100%;
           cursor: pointer;
+          color: #aaaaaa;
+          height: 100%;
         }
       }
     }
@@ -213,11 +222,12 @@ main {
         }
       }
 
-      >.list-plus {
+      >.list-icon {
         position: absolute;
+        color: #aaaaaa;
+        cursor: pointer;
         top: 0;
         left: 240px;
-        cursor: pointer;
       }
     }
   }

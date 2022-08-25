@@ -31,7 +31,7 @@ function cardMode(data) {
       </a>
       <div class="card-body">
         <p class="card-text">${item.entry[0].title}</p>
-        <div class="card-plus plus-icon">
+        <div class="card-icon">
             <i class="fas fa-plus" data-id=${item.entry[0].mal_id}></i>
         </div>
       </div>
@@ -56,7 +56,7 @@ function listMode(data) {
           <p class="list-text">${item.entry[0].title}</p>
         </a>
       </div>
-      <div class="list-plus plus-icon">
+      <div class="list-icon">
           <i class="fas fa-plus" data-id=${item.entry[0].mal_id}></i>
       </div>
     </div> 
@@ -77,7 +77,7 @@ function changeMode(mode) {
 //依照淺色深色模式改變背景、文字或圖示顏色
 function modeChangeColor() {
     const icon = document.querySelector(".dark-mode i");
-    const title = document.querySelector(".title");
+    const title = document.querySelector(".title a span:last-child");
     const favorite = document.querySelector(".favorite a");
     const input = document.querySelector("input");
     const mode = document.querySelector(".arrangement-Mode");
