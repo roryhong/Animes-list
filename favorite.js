@@ -70,8 +70,6 @@ function modeChangeColor() {
   const icon = document.querySelector(".dark-mode i");
   const title = document.querySelector(".title a span:last-child");
   const favorite = document.querySelector(".favorite a");
-  const input = document.querySelector("input");
-  const mode = document.querySelector(".arrangement-Mode");
   const listText = document.querySelectorAll(".list div p");
 
   if (icon.classList.contains("fa-moon")) {
@@ -81,11 +79,13 @@ function modeChangeColor() {
     document.body.style = "background-color: #3C3C3C;";
     title.style = "color: #AAAAAA;";
     favorite.style = "color: #AAAAAA;";
-    input.style = "border: 1px solid #AAAAAA;";
-    mode.style = "color: #AAAAAA;";
     listText.forEach((item) => {
       item.style = "color: #E0E0E0";
     });
+    if (animes.length) {
+      arrangementMode.style = "color: #AAAAAA;";
+      input.style = "border: 1px solid #AAAAAA;";
+    }
   } else {
     icon.classList.remove("fa-sun");
     icon.classList.add("fa-moon");
@@ -93,11 +93,13 @@ function modeChangeColor() {
     document.body.style = "background-color: white;";
     title.style = "color: #3c3c3c;";
     favorite.style = "color: #3c3c3c;";
-    input.style = "border: 1px solid #272727;";
-    mode.style = "color: #3c3c3c;";
     listText.forEach((item) => {
       item.style = "color: #3c3c3c;";
     });
+    if (animes.length) {
+      arrangementMode.style = "color: #3c3c3c;";
+      input.style = "border: 1px solid #272727;";
+    }
   }
 }
 
@@ -184,11 +186,12 @@ function removeFromFavorite(id) {
 //清單中有動畫時出現input與arrangement-Mode
 function displayInputAndMode() {
   const text = document.querySelector('.text')
-  if(animes.length) {
+  if (animes.length) {
     arrangementMode.style.opacity = 1;
     input.style.opacity = 1;
     text.style.display = 'none';
-  }else {
+
+  } else {
     arrangementMode.style.opacity = 0;
     input.style.opacity = 0;
     text.style.display = 'block';
@@ -234,7 +237,7 @@ paginator.addEventListener("click", function paginationChange(e) {
 //監聽minus的點擊
 itemContainer.addEventListener("click", function clickMinus(e) {
   if (!e.target.matches(".fa-minus")) return;
-  if(confirm("是否刪除此動畫")) {
+  if (confirm("是否刪除此動畫")) {
     removeFromFavorite(e.target.dataset.id);
   }
 });
