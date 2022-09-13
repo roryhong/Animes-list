@@ -45,9 +45,11 @@ nav {
 
     >a {
       text-decoration: none;
+
       >span {
         color: #3c3c3c;
       }
+
       >span:first-child {
         color: $mainColor;
       }
@@ -109,8 +111,9 @@ main {
   }
 
   .text {
-    color:#aaaaaa;
+    color: #aaaaaa;
   }
+
   >.arrangement-Mode {
     @extend %aboutFlex;
     padding: 3px 7px;
@@ -180,6 +183,10 @@ main {
           cursor: pointer;
           color: #aaaaaa;
           height: 100%;
+
+          i:active {
+            transform: scale(0.9)
+          }
         }
       }
     }
@@ -228,6 +235,10 @@ main {
         cursor: pointer;
         top: 0;
         left: 240px;
+
+        i:active {
+          transform: scale(0.9)
+        }
       }
     }
   }
@@ -279,6 +290,10 @@ main {
 
     >a {
       color: gray;
+
+      i:active {
+        transform: scale(0.9);
+      }
     }
   }
 }
