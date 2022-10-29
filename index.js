@@ -23,7 +23,7 @@ function cardMode(data) {
     let cards = "";
     data.map((item) => {
         cards += `
-      <div class="card" style="width: 20rem;">
+      <div class="card" style="width: 18rem;">
       <a href="${item.entry[0].url}" target="_blank">
         <div>
           <img src="${item.entry[0].images.jpg.image_url}" alt="...">
@@ -47,13 +47,11 @@ function listMode(data) {
         list += `
      <div class="list">
       <a href="${item.entry[0].url}" target="_blank">
-        <div>
           <img src="${item.entry[0].images.jpg.image_url}" alt="...">
-        </div>
       </a>
       <div class="list-body">
         <a href="${item.entry[0].url}" target="_blank">
-          <p class="list-text">${item.entry[0].title}</p>
+          <h1 class="list-text">${item.entry[0].title}</h1>
         </a>
       </div>
       <div class="list-icon">

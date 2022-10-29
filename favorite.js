@@ -36,15 +36,13 @@ function listMode(data) {
   let list = "";
   data.map((item) => {
     list += `
-     <div class="list">
+    <div class="list">
       <a href="${item.entry[0].url}" target="_blank">
-        <div>
           <img src="${item.entry[0].images.jpg.image_url}" alt="...">
-        </div>
       </a>
       <div class="list-body">
         <a href="${item.entry[0].url}" target="_blank">
-          <p class="list-text">${item.entry[0].title}</p>
+          <h1 class="list-text">${item.entry[0].title}</h1>
         </a>
       </div>
       <div class="list-icon">
