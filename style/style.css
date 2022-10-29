@@ -161,8 +161,8 @@ main > .container > .card > a > div {
 main > .container > .card > a > div > img {
   width: 100%;
   min-height: 100%;
-  -o-object-fit: contain;
-     object-fit: contain;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 main > .container > .card > .card-body {
   -webkit-box-pack: justify;
