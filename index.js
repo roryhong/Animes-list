@@ -46,17 +46,19 @@ function listMode(data) {
     data.map((item) => {
         list += `
      <div class="list">
-      <a href="${item.entry[0].url}" target="_blank">
-          <img src="${item.entry[0].images.jpg.image_url}" alt="...">
-      </a>
-      <div class="list-body">
-        <a href="${item.entry[0].url}" target="_blank">
-          <h1 class="list-text">${item.entry[0].title}</h1>
-        </a>
-      </div>
-      <div class="list-icon">
-          <i class="fas fa-plus" data-id=${item.entry[0].mal_id}></i>
-      </div>
+        <div>
+            <a href="${item.entry[0].url}" target="_blank">
+                <img src="${item.entry[0].images.jpg.image_url}" alt="...">
+            </a>
+        </div>
+        <div class="list-body">
+            <a href="${item.entry[0].url}" target="_blank">
+                <h1 class="list-text">${item.entry[0].title}</h1>
+            </a>
+            <div class="list-icon">
+                <i class="fas fa-plus" data-id=${item.entry[0].mal_id}></i>
+            </div>
+        </div>
     </div> 
     `;
     });
@@ -79,7 +81,7 @@ function modeChangeColor() {
     const favorite = document.querySelector(".favorite a");
     const input = document.querySelector("input");
     const mode = document.querySelector(".arrangement-Mode");
-    const listText = document.querySelectorAll(".list div p");
+    const listText = document.querySelectorAll(".list .list-body a h1");
 
     if (icon.classList.contains("fa-moon")) {
         icon.classList.add("fa-sun");
@@ -90,9 +92,7 @@ function modeChangeColor() {
         favorite.style = "color: #AAAAAA;";
         input.style = "border: 1px solid #AAAAAA;";
         mode.style = "color: #AAAAAA;";
-        listText.forEach((item) => {
-            item.style = "color: #E0E0E0";
-        });
+        changeListModeTextColor()
     } else {
         icon.classList.remove("fa-sun");
         icon.classList.add("fa-moon");
@@ -110,7 +110,7 @@ function modeChangeColor() {
 
 //深色模式下卡片模式文字顏色
 function changeListModeTextColor() {
-    const listText = document.querySelectorAll(".list div p");
+    const listText = document.querySelectorAll(".list .list-body a h1");
     const icon = document.querySelector(".dark-mode i");
     const listIcon = document.querySelector(".arrangement-Mode .list-mode i");
 

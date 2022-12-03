@@ -37,16 +37,18 @@ function listMode(data) {
   data.map((item) => {
     list += `
     <div class="list">
-      <a href="${item.entry[0].url}" target="_blank">
-          <img src="${item.entry[0].images.jpg.image_url}" alt="...">
-      </a>
+      <div>
+        <a href="${item.entry[0].url}" target="_blank">
+            <img src="${item.entry[0].images.jpg.image_url}" alt="...">
+        </a>
+      </div>
       <div class="list-body">
         <a href="${item.entry[0].url}" target="_blank">
           <h1 class="list-text">${item.entry[0].title}</h1>
         </a>
-      </div>
-      <div class="list-icon">
+        <div class="list-icon">
           <i class="fas fa-minus" data-id=${item.entry[0].mal_id}></i>
+      </div>
       </div>
     </div> 
     `;
@@ -68,7 +70,7 @@ function modeChangeColor() {
   const icon = document.querySelector(".dark-mode i");
   const title = document.querySelector(".title a span:last-child");
   const favorite = document.querySelector(".favorite a");
-  const listText = document.querySelectorAll(".list div p");
+  const listText = document.querySelectorAll(".list .list-body a h1");
 
   if (icon.classList.contains("fa-moon")) {
     icon.classList.add("fa-sun");
@@ -103,7 +105,7 @@ function modeChangeColor() {
 
 //深色模式下卡片模式文字顏色
 function changeListModeTextColor() {
-  const listText = document.querySelectorAll(".list div p");
+  const listText = document.querySelectorAll(".list .list-body a h1");
   const icon = document.querySelector(".dark-mode i");
   const listIcon = document.querySelector(".arrangement-Mode .list-mode i");
 
@@ -179,6 +181,7 @@ function removeFromFavorite(id) {
   changeMode(mode)
   renderPaginator(animes.length)
   displayInputAndMode()
+  changeListModeTextColor()
 }
 
 //清單中有動畫時出現input與arrangement-Mode

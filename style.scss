@@ -199,8 +199,7 @@ main {
     }
 
     >.list {
-      width: 80%;
-      height: 400px;
+      height: 300px;
       margin: 15px auto;
       @extend %aboutFlex;
       font-size: 20px;
@@ -208,76 +207,61 @@ main {
       justify-content: space-around;
       position: relative;
       border-radius: $cardAndListModeBorderRadius;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
-      position: relative;
-      overflow: hidden;
-
-      &::before {
-        content: '';
-        position: absolute;
-        background-color: rgba(0, 0, 0, 0.3);
-        border-radius: $cardAndListModeBorderRadius;
-        width: 100%;
-        height: 100%;
-        top: 0;
-        left: 0;
-        z-index: 1;
-      }
 
       @include rwd {
-        width: 60%;
+        width: 70%;
       }
 
-      >a {
-        >img {
-          position: absolute;
-          width: 100%;
-          height: 100%;
-          top: 0;
-          left: 0;
-          z-index: -1;
-          object-fit: cover;
-          border-radius: $cardAndListModeBorderRadius;
-          @extend %aboutTransform;
+      >div {
+        border-radius: $cardAndListModeBorderRadius;
+        overflow: hidden;
+        height: 100%;
+        width: 250px;
+
+        >a {
+          >img {
+            width: 100%;
+            height: 100%;
+            border-radius: $cardAndListModeBorderRadius;
+            @extend %aboutTransform;
+          }
         }
       }
 
       >.list-body {
-        width: 100%;
+        width: 70%;
+        height: 350px;
         text-align: center;
-        z-index: 10;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+
+        @include rwd {
+          width: 80%;
+        }
 
         >a {
           text-decoration: none;
 
           >.list-text {
-            color: #fff;
+            color: $darkModeAideColor;
             font-weight: 600;
-            font-size: 40px;
             transition: 0.8s;
-
-            &:hover {
-              color: $mainColor;
-            }
-
-            @include rwd {
-              font-size: 60px;
-            }
           }
         }
-      }
 
-      >.list-icon {
-        position: absolute;
-        color: #fff;
-        cursor: pointer;
-        top: 10px;
-        left: 10px;
-        font-size: 30px;
-        z-index: 10;
+        >.list-icon {
+          position: absolute;
+          color: #aaaaaa;
+          cursor: pointer;
+          top: 1rem;
+          left: 0.5rem;
+          font-size: 30px;
 
-        i:active {
-          transform: scale(0.9)
+          i:active {
+            transform: scale(0.9)
+          }
         }
       }
     }

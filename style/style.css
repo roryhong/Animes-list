@@ -7,13 +7,13 @@ main > .container > .list, main > .container > .card > .card-body > .card-icon, 
           align-items: center;
 }
 
-main > .container > .list > a > img, main > .container > .card > a > div > img {
+main > .container > .list > div > a > img, main > .container > .card > a > div > img {
   -webkit-transform: scale(1, 1);
           transform: scale(1, 1);
   -webkit-transition: all 1s ease-out;
   transition: all 1s ease-out;
 }
-main > .container > .list > a > img:hover, main > .container > .card > a > div > img:hover {
+main > .container > .list > div > a > img:hover, main > .container > .card > a > div > img:hover {
   -webkit-transform: scale(1.2, 1.2);
           transform: scale(1.2, 1.2);
 }
@@ -182,8 +182,7 @@ main > .container > .card > .card-body > .card-icon i:active {
           transform: scale(0.9);
 }
 main > .container > .list {
-  width: 80%;
-  height: 400px;
+  height: 300px;
   margin: 15px auto;
   font-size: 20px;
   font-weight: 600;
@@ -191,71 +190,61 @@ main > .container > .list {
       justify-content: space-around;
   position: relative;
   border-radius: 10px;
-  -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
-          box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
-  position: relative;
-  overflow: hidden;
-}
-main > .container > .list::before {
-  content: "";
-  position: absolute;
-  background-color: rgba(0, 0, 0, 0.3);
-  border-radius: 10px;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  z-index: 1;
 }
 @media (min-width: 1000px) {
   main > .container > .list {
-    width: 60%;
+    width: 70%;
   }
 }
-main > .container > .list > a > img {
-  position: absolute;
+main > .container > .list > div {
+  border-radius: 10px;
+  overflow: hidden;
+  height: 100%;
+  width: 250px;
+}
+main > .container > .list > div > a > img {
   width: 100%;
   height: 100%;
-  top: 0;
-  left: 0;
-  z-index: -1;
-  -o-object-fit: cover;
-     object-fit: cover;
   border-radius: 10px;
 }
 main > .container > .list > .list-body {
-  width: 100%;
+  width: 70%;
+  height: 350px;
   text-align: center;
-  z-index: 10;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: relative;
+}
+@media (min-width: 1000px) {
+  main > .container > .list > .list-body {
+    width: 80%;
+  }
 }
 main > .container > .list > .list-body > a {
   text-decoration: none;
 }
 main > .container > .list > .list-body > a > .list-text {
-  color: #fff;
+  color: #272727;
   font-weight: 600;
-  font-size: 40px;
   -webkit-transition: 0.8s;
   transition: 0.8s;
 }
-main > .container > .list > .list-body > a > .list-text:hover {
-  color: #00aeae;
-}
-@media (min-width: 1000px) {
-  main > .container > .list > .list-body > a > .list-text {
-    font-size: 60px;
-  }
-}
-main > .container > .list > .list-icon {
+main > .container > .list > .list-body > .list-icon {
   position: absolute;
-  color: #fff;
+  color: #aaaaaa;
   cursor: pointer;
-  top: 10px;
-  left: 10px;
+  top: 1rem;
+  left: 0.5rem;
   font-size: 30px;
-  z-index: 10;
 }
-main > .container > .list > .list-icon i:active {
+main > .container > .list > .list-body > .list-icon i:active {
   -webkit-transform: scale(0.9);
           transform: scale(0.9);
 }
